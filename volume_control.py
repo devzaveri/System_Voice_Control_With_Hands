@@ -15,14 +15,14 @@ vol = 0
 vol_bar = 340
 vol_perc = 0
 area = 0
-vol_color = (250, 0, 0)
+vol_color = (250, 0, 255)
 
 
 
 cap = cv2.VideoCapture(0)
 cap.set(3, wCam)
 cap.set(4, hCam)
-detector = htm.HandDetector(detection_conf=0.75, max_hands=1)
+detector = htm.HandDetector(detection_conf=0.7, max_hands=1)
 
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
@@ -67,9 +67,9 @@ while True:
             if not fingers[4]:
                 volume.SetMasterVolumeLevelScalar(vol_perc / 100, None)
                 cv2.circle(img, (line_info[4], line_info[5]), 5, (255, 255, 0), cv2.FILLED)
-                vol_color = (135, 0, 255)
+                vol_color = (181, 13, 13)
             else:
-                vol_color = (135, 0, 255)
+                vol_color = (181, 13, 13)
 
             
             if len_line < min_dist:
